@@ -34,6 +34,7 @@ router.post('/signup', function(req, res, next) {
 
 // Login user and return JWT as cookie
 router.post('/login', function (req, res, next) {
+  console.log("request", req.body )
   models.users.findOne({
     where: {
       Username: req.body.Username
@@ -48,8 +49,8 @@ router.post('/login', function (req, res, next) {
       let passwordMatch = authService.comparePasswords(req.body.Password, user.Password);
       if (passwordMatch) {
         let token = authService.signUser(user);
-        res.send({'jwt': token});
-        res.send('Login successful');
+        res.json({'jwt': token});
+        
       } else {
         console.log('Wrong password');
         res.send('Wrong password');
