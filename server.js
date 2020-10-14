@@ -4,7 +4,8 @@ const cors = require("cors");
 
 const app = express();
 
-
+const db = require("./dreamlist-backend/models");
+db.sequelize.sync();
 
 app.use(cors());
 

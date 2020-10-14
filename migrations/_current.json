@@ -1,5 +1,49 @@
 {
     "tables": {
+        "dreams": {
+            "tableName": "dreams",
+            "schema": {
+                "DreamId": {
+                    "allowNull": false,
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "field": "DreamId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "DreamTitle": {
+                    "field": "DreamTitle",
+                    "seqType": "Sequelize.STRING"
+                },
+                "DreamBody": {
+                    "field": "DreamBody",
+                    "seqType": "Sequelize.STRING"
+                },
+                "UserId": {
+                    "allowNull": false,
+                    "field": "UserId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "Deleted": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": false
+                    },
+                    "field": "Deleted",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
         "users": {
             "tableName": "users",
             "schema": {
@@ -44,5 +88,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 4
 }
