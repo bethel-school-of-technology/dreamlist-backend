@@ -48,8 +48,8 @@ router.post('/add', (req, res) => {
         if(user == null){
             return res.json({message: "User not logged in."})
         }
-        models.dreams.create({...req.body, UserId: user.UserId}).then(newDream =>{
-            res.json({dream: newDream});
+        models.dreams.create({...req.body, UserId: users.UserId}).then(newDream =>{
+            res.json({dreams: newDream});
         }).catch(err => {
             res.status(400);
             res.send(err.message);
