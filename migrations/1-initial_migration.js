@@ -5,21 +5,63 @@ var Sequelize = require('sequelize');
 /**
  * Actions summary:
  *
- * dropTable "posts"
+ * createTable "users", deps: []
  * createTable "dreams", deps: []
  *
  **/
 
 var info = {
-    "revision": 4,
+    "revision": 1,
     "name": "initial_migration",
-    "created": "2020-10-10T04:36:16.324Z",
+    "created": "2020-11-05T03:50:29.686Z",
     "comment": ""
 };
 
 var migrationCommands = [{
-        fn: "dropTable",
-        params: ["posts"]
+        fn: "createTable",
+        params: [
+            "users",
+            {
+                "UserId": {
+                    "type": Sequelize.INTEGER,
+                    "field": "UserId",
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "allowNull": false
+                },
+                "FirstName": {
+                    "type": Sequelize.STRING,
+                    "field": "FirstName"
+                },
+                "LastName": {
+                    "type": Sequelize.STRING,
+                    "field": "LastName"
+                },
+                "Email": {
+                    "type": Sequelize.STRING,
+                    "field": "Email",
+                    "unique": true
+                },
+                "Username": {
+                    "type": Sequelize.STRING,
+                    "field": "Username",
+                    "unique": true
+                },
+                "Password": {
+                    "type": Sequelize.STRING,
+                    "field": "Password"
+                },
+                "createdAt": {
+                    "type": Sequelize.DATE,
+                    "field": "createdAt"
+                },
+                "updatedAt": {
+                    "type": Sequelize.DATE,
+                    "field": "updatedAt"
+                }
+            },
+            {}
+        ]
     },
     {
         fn: "createTable",

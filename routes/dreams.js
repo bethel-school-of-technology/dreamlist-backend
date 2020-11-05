@@ -56,6 +56,26 @@ router.post('/add', (req, res) => {
         });
     });
 })
+// router.post('/add', function(req, res, next) {
+//     models.dreams
+//     .findOrCreate({
+//         where: {
+//             DreamId: req.body.DreamId
+//         },
+//         defaults: {
+//             DreamTitle: req.body.DreamTitle,
+//             DreamBody: req.body.DreamBody
+//         }
+//       })
+//       .spread(function(result, created) {
+//         if (created) {
+//           res.send('Dream successfully created');
+//         } else {
+//           res.send('There was a problem creating this dream');
+//         }
+//       });
+//   });
+  
 
 router.put('/:id', (req, res) => {
     let token = req.cookies.token;
