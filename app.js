@@ -22,7 +22,7 @@ app.set('view engine', 'hbs');
 //   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 //   next();
 // });
-app.use(cors())
+app.use(cors({ origin: ["http://localhost:8081"], credentials: true}));
 app.use(bodyParser.json())
 
 

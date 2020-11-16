@@ -50,6 +50,7 @@ router.post('/add', (req, res) => {
         }
         models.dreams.create({...req.body, UserId: users.UserId}).then(newDream =>{
             res.json({dreams: newDream});
+            res.cookie({"jwt":token })
         }).catch(err => {
             res.status(400);
             res.send(err.message);
