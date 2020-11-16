@@ -51,7 +51,7 @@ router.post('/login', function (req, res, next) {
         let token = authService.signUser(user);
         res.cookie('token', token, { httpOnly: true });
         res.json({'jwt': token});
-        
+
       } else {
         console.log('Wrong password');
         res.send('Wrong password');
@@ -62,7 +62,7 @@ router.post('/login', function (req, res, next) {
 
 //Secure Profile Route
 router.get('/profile', function (req, res, next) {
-  let token = req.cookies.token; 
+  let token = req.cookies.token { withCredentials: true};
   if (token) {
     authService.verifyUser(token)
       .then(user => {
