@@ -61,7 +61,7 @@ router.post('/login', function (req, res, next) {
 
 //Secure Profile Route
 router.get('/profile', function (req, res, next) {
-  let token = req.cookies.jwt;
+  let token = req.cookies.token; 
   if (token) {
     authService.verifyUser(token)
       .then(user => {
@@ -80,7 +80,7 @@ router.get('/profile', function (req, res, next) {
 
 //Logout Route
 router.get('/logout', function (req, res, next) {
-  res.cookie('jwt', "", { expires: new Date(0) });
+  res.cookie('token', "", { expires: new Date(0) });
   res.send('Logged out');
   });
 
