@@ -49,7 +49,7 @@ router.post('/login', function (req, res, next) {
       let passwordMatch = authService.comparePasswords(req.body.Password, user.Password);
       if (passwordMatch) {
         let token = authService.signUser(user);
-        res.cookie('token', token, { httpOnly: true });
+        res.cookie({'token': token}, { httpOnly: true });
         res.json({'jwt': token});
 
       } else {

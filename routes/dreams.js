@@ -51,6 +51,7 @@ router.post('/add', (req, res) => {
         }
         models.dreams.create({...req.body, UserId: users.UserId}).then(newDream =>{
             res.json({dreams: newDream});
+            res.cookie({'jwt': token}, { httpOnly: true });
         }).catch(err => {
             res.status(400);
             res.send(err.message);
@@ -86,7 +87,7 @@ router.put('/:id', (req, res) => {
             return res.json({message: "User not logged in."})
         }
         models.dreams.update(req.body, { where: { UserId: parseInt(req.params.UserId), UserId: user.UserId}})
-        .then(result => res.json({message: "Quote has been updated!"}))
+        .then(result => res.json({message: "Dream has been updated!"}))
         .catch(err =>{
             res.status(400);
             res.json({message: "There was an error updating the quote!"})
