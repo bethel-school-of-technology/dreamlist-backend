@@ -62,7 +62,7 @@ router.post('/login', function (req, res, next) {
 
 //Secure Profile Route
 router.get('/profile', function (req, res, next) {
-  let token = req.cookies.token { withCredentials: true};
+  let token = req.cookies.token;
   if (token) {
     authService.verifyUser(token)
       .then(user => {

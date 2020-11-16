@@ -5,7 +5,7 @@ var authService = require('../services/auth');
 
 router.get('/', (req, res) => {
 
-    let token = req.cookies.token {withCredentials: true};
+    let token = req.cookies.token;
 
     authService.verifyUser(token).then(user => {
 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
 
-    let token = req.cookies.token { withCredentials: true};
+    let token = req.cookies.token;
     authService.verifyUser(token).then(user => {
 
         if(user == null){
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/add', (req, res) => {
-    let token = req.cookies.token { withCredentials: true};
+    let token = req.cookies.token;
     authService.verifyUser(token).then(user => {
 
         if(user == null){
@@ -79,7 +79,7 @@ router.post('/add', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-    let token = req.cookies.token { withCredentials: true};
+    let token = req.cookies.token;
     authService.verifyUser(token).then(user => {
 
         if(user == null){
@@ -95,7 +95,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-    let token = req.cookies.token { withCredentials: true};
+    let token = req.cookies.token;
     authService.verifyUser(token).then(user => {
 
         if(user == null){
